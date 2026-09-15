@@ -1,0 +1,20 @@
+<app-hero></app-hero>
+
+<section class="featured">
+
+  <h2>Featured Pasalubong</h2>
+
+  <p>
+    Discover Filipino snacks and regional favorites
+    perfect for sharing with family and friends.
+  </p>
+
+  <div class="product-grid">
+
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+
+  </div>
+
+</section>

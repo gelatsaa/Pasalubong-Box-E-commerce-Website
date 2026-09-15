@@ -1,0 +1,143 @@
+<section class="receipt-page">
+
+  @if (order) {
+
+    <div class="receipt">
+
+      <div class="receipt-header">
+
+        <h1>Pasalubong Box</h1>
+
+        <div class="success-icon">✓</div>
+
+        <h2>Order Confirmed!</h2>
+
+        <p>Thank you for your order!</p>
+
+      </div>
+
+
+      <div class="order-details">
+
+        <div>
+          <span>Order ID</span>
+          <strong>{{ order.orderId }}</strong>
+        </div>
+
+        <div>
+          <span>Order Date</span>
+          <strong>{{ order.orderDate | date:'medium' }}</strong>
+        </div>
+
+      </div>
+
+
+      <hr>
+
+
+      <h3>Customer Information</h3>
+
+      <div class="customer-details">
+
+        <p>
+          <strong>Name:</strong>
+          {{ order.fullName }}
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          {{ order.email }}
+        </p>
+
+        <p>
+          <strong>Phone:</strong>
+          {{ order.phone }}
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          {{ order.address }}
+        </p>
+
+      </div>
+
+
+      <hr>
+
+
+      <h3>Order Summary</h3>
+
+      @for (item of order.items; track $index) {
+
+        <div class="receipt-item">
+
+          <div class="item-info">
+
+            <strong>{{ item.product.name }}</strong>
+
+            <span>
+              ₱{{ item.product.price }} × {{ item.quantity }}
+            </span>
+
+          </div>
+
+          <strong>
+            ₱{{ item.product.price * item.quantity }}
+          </strong>
+
+        </div>
+
+      }
+
+
+      <div class="receipt-total">
+
+        <span>Total</span>
+
+        <strong>₱{{ order.total }}</strong>
+
+      </div>
+
+
+      <div class="receipt-footer">
+
+  <p>
+    Thank you for supporting Filipino products! 🇵🇭
+  </p>
+
+  <div class="receipt-actions">
+
+    <button
+     class="print-button"
+     (click)="printReceipt()"
+    >
+      🖨 Print Receipt
+    </button>
+
+    <a routerLink="/shop">
+      Continue Shopping
+    </a>
+
+  </div>
+
+</div>
+
+    </div>
+
+  } @else {
+
+    <div class="receipt empty-receipt">
+
+      <h2>No Order Found</h2>
+
+      <p>Please place an order first.</p>
+
+      <a routerLink="/shop">
+        Go to Shop
+      </a>
+
+    </div>
+
+  }
+
+</section>

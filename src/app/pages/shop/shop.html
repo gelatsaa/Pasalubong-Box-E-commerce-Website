@@ -1,0 +1,32 @@
+<section class="shop">
+
+  <div class="shop-header">
+
+    <p class="small-title">
+      OUR PRODUCTS
+    </p>
+
+    <h1>
+      Shop Pasalubong
+    </h1>
+
+    <p>
+      Explore our selection of Filipino snacks and regional favorites,
+      perfect for yourself or as a gift for family and friends.
+    </p>
+
+  </div>
+
+  <div class="product-grid">
+
+    @for (product of products; track product.id) {
+
+      <app-product-card
+        [product]="product">
+      </app-product-card>
+
+    }
+
+  </div>
+
+</section>

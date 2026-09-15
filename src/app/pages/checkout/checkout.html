@@ -1,0 +1,85 @@
+<section class="checkout-page">
+
+  <h1>Checkout</h1>
+
+  <div class="checkout-container">
+
+    <!-- Customer Information -->
+    <div class="customer-info">
+
+      <h2>Customer Information</h2>
+
+      <label>Full Name</label>
+      <input 
+        type="text" 
+        placeholder="Enter your full name" 
+        [(ngModel)]="fullName"
+      >
+
+      <label>Email</label>
+      <input 
+        type="email" 
+        placeholder="Enter your email" 
+        [(ngModel)]="email"
+      >
+
+      <label>Phone Number</label>
+      <input 
+        type="tel" 
+        placeholder="Enter your phone number" 
+        [(ngModel)]="phone"
+      >
+
+      <label>Delivery Address</label>
+      <textarea 
+        placeholder="Enter your delivery address" 
+        [(ngModel)]="address">
+      </textarea>
+
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+
+      <h2>Order Summary</h2>
+
+      @for (item of cartItems; track $index) {
+
+        <div class="order-item">
+
+          <img
+            [src]="item.product.image"
+            [alt]="item.product.name"
+          >
+
+          <div>
+            <h3>{{ item.product.name }}</h3>
+            <p>Quantity: {{ item.quantity }}</p>
+          </div>
+
+          <strong>
+            ₱{{ item.product.price * item.quantity }}
+          </strong>
+
+        </div>
+
+      }
+
+      <div class="total">
+        <span>Total</span>
+        <strong>₱{{ total }}</strong>
+      </div>
+
+      <button class="place-order" (click)="placeOrder()">
+        Place Order
+      </button>
+
+      <a routerLink="/cart">
+        ← Back to Cart
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

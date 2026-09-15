@@ -1,0 +1,58 @@
+<!--
+<div class="product-card">
+
+  <img
+    [src]="product.image"
+    [alt]="product.name"
+  >
+
+  <div class="product-info">
+
+    <p class="category">
+      {{ product.category }}
+    </p>
+
+    <h3>
+      {{ product.name }}
+    </h3>
+
+    <p class="price">
+      ₱{{ product.price }}
+    </p>
+
+   <button>
+    Add to Cart
+   </button>
+
+  </div>
+
+</div>
+-->
+
+<div class="product-card">
+  
+  <img
+  [src]="product.image"
+  [alt]="product.name"
+  >
+  <div class="product-info">
+
+    <p class="category">
+      {{ product.category }}
+    </p>
+
+    <h3>
+      {{ product.name }}
+    </h3>
+
+    <p class="price">
+      ₱{{ product.price }}
+    </p>
+
+    <button (click)="addToCart()">
+      Add to Cart
+    </button>
+
+  </div>
+
+</div>
